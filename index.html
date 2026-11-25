@@ -1,92 +1,258 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Omar Báez</title>
     <style>
-    body{
-        background-color:lightyellow;
-    }
-    .nav{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: lightskyblue;
-        flex-direction: column;
-        border-radius: 30px;
-        font-size: 35px;
-        margin: 5%;
-        
-    }
-    .content{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color:lightcyan;
-        border-radius: 30px;
-        font-size: 35px;
-        margin: 5%;
-        
-        
-    }
-    .bottom{
-        display: flex;
-        justify-content: space-between;
-    }
+        /* Estilos generales y reseteo básico */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        body {
+            background-color: #fcf9ee; /* Un tono crema más suave */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px 20px 100px;
+        }
 
+        /* Contenedor de la barra de navegación / cabecera */
+        .nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #e0f2fe; /* Azul cielo más suave y moderno */
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .nav img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #bae6fd;
+        }
+
+        .nav h1 {
+            font-size: 2rem;
+            color: #0369a1;
+        }
+
+        /* Contenedor principal */
+        .content {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Estilos para las secciones */
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #0891b2;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 5px;
+        }
+
+        .section p {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        /* Listas limpias para habilidades, experiencia, etc. */
+        .section ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .section li {
+            font-size: 1.7rem;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .section li::before {
+            content: "▪";
+            color: #0891b2;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Control de tamaño para los GIFs e imágenes de contenido */
+        .content img {
+            max-width: 200px;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            display: block;
+            overflow: hidden;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            color: inherit;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .project-card:hover,
+        .project-card:focus-visible {
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+            outline: 2px solid #0891b2;
+            outline-offset: 2px;
+        }
+
+        .project-card img {
+            display: block;
+            width: 100%;
+            max-width: none;
+            height: 350px;
+            margin: 0;
+            object-fit: cover;
+        }
+
+        .project-card h3 {
+            padding: 12px;
+            color: #0369a1;
+            font-size: 1.15rem;
+        }
+
+        .projects-gif {
+            margin-top: 20px;
+        }
+
+        /* Pie de página */
+        .bottom {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            gap: 8px 20px;
+            background-color: #f1f5f9;
+            padding: 14px 24px;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            color: #1f232b;
+        }
+
+        /* Diseño responsivo para celulares */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px 10px 110px;
+            }
+            .content {
+                padding: 20px;
+            }
+            .bottom {
+                justify-content: center;
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="nav">
-        <img src="gato.png" alt="gato">
-        <h1>Omar "lokokbron" Báez</h1>
-        
-    </div>
-    <div class="content">
-        <h1>Sobre mi</h1>
-        <p>
-            hola<br>
-            como estan<br>
-            yo bien<br>
-            jalo evrinian<br>
-            jawaryu fain tenkiu<br>
-        
-            contratame ya!<br>
-            <img src="mei-mei-cat-meimei-cat.gif" alt="meimei">
-        </p>
-        <br></br>
-        <h1>habilidades</h1>
-        <p>
-            -habilidades de cabron
-            <br>
-            -conocimiento de momazos
-            <br>
-            -modo diablo activado
-            <br>
-            -contratame ya!
-            <br>
-            <img src="rigby.gif" alt="miar">
-        </p>
-        <h1>Experencia</h1>
-        <p>
-            -más de cien horas de leftsito<br>
-            -todos los niveles de ultrakill con rango P<br>
-            -contratame ya!<br>
-            <img src="meimeivoid.gif" alt="void">
-        </p>
-        <h1>Formacion</h1>
-        <p>
 
-            -escuelita casa del niño<br>
-            -ahorita en la uni<br>
-            -contratame ya!<br>
-            <img src="pajamas-kitten.gif" alt="jamas">
+    <!-- Cabecera -->
+    <header class="nav">
+        <img src="gato.png" alt="Foto de perfil de gato">
+        <h1>Omar Báez</h1>
+    </header>
 
-        </p>
-    </div>
-    <div class="bottom">
-        <h1>adios</h1>
-        <h1>saludos</h1>
-    </div>
+    <!-- Contenido Principal -->
+    <main class="content">
+        
+        <section class="section">
+            <h2>Sobre mí</h2>
+            <p>
+                Estudiante de Ingeniería en Sistemas en la Universidad Vasco de Quiroga (UVAQ) en Morelia, Michoacán. Enfocado en desarrollo backend, arquitectura de datos y optimización de algoritmos. Me interesa construir soluciones desde los fundamentos, entendiendo cómo funcionan las cosas por debajo
+            </p>
+            <img src="mei-mei-cat-meimei-cat.gif" alt="Meimei cat">
+        </section>
+
+        <section class="section">
+            <h2>Habilidades</h2>
+            <ul>
+                <li>Lenguajes: Java, JavaScript, PHP, Python, Julia, SQL.</li>
+                <li>Backend y Bases de Datos: Node.js, MySQL, PostgreSQL, diseño de APIs REST</li>
+                <li>HTML5, CSS</li>
+                <li>Sistemas y Herramientas: Administración Linux, Git/GitHub, IntelliJ IDE, Visual Studio Code, TablePlus</li>
+                <li>Idiomas: Español nativo, Inglés B2</li>
+            </ul>
+            <img src="rigby.gif" alt="Rigby">
+        </section>
+
+        <section class="section">
+            <h2>Proyectos</h2>
+            <div class="projects-grid">
+                <a class="project-card" href="https://c.tenor.com/1Q6u1cim6xMAAAAC/tenor.gif" target="_blank" rel="noopener noreferrer">
+                    <img src="tienda_mascotas.png" alt="Tienda de mascotas">
+                    <h3>Página de tienda de mascotas</h3>
+                </a>
+                <a class="project-card" href="https://omrjft.github.io/iaClima/" target="_blank" rel="noopener noreferrer">
+                    <img src="clima.png" alt="Página de clima">
+                    <h3>Página de clima</h3>
+                </a>
+                <a class="project-card" href="https://omrjft.github.io/tamagotchi/" target="_blank" rel="noopener noreferrer">
+                    <img src="tamagotchi.png" alt="Tamagotchi online">
+                    <h3>Tamagotchi online</h3>
+                </a>
+                <a class="project-card" href="https://omrjft.github.io/reproductor/" target="_blank" rel="noopener noreferrer">
+                    <img src="reproductor.png" alt="Reproductor de música">
+                    <h3>Reproductor de música</h3>
+                </a>
+            </div>
+            <img class="projects-gif" src="meimeivoid.gif" alt="Void animation">
+        </section>
+
+        <section class="section">
+            <h2>Formación</h2>
+            <ul>
+                <li>Ingeniería en Sistemas — Universidad Vasco de Quiroga (UVAQ) | En curso.</li>
+            </ul>
+            <img src="pajamas-kitten.gif" alt="Pajamas kitten">
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bottom" aria-label="Información de contacto">
+        <span>Correo: omarjafet1@gmail.com</span>
+        <span>GitHub: <a href="https://github.com/omrjft" target="_blank" rel="noopener noreferrer">omrjft</a></span>
+        <span>Teléfono: +52 452 306 0795</span>
+    </footer>
+
 </body>
 </html>

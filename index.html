@@ -3,256 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - Omar Báez</title>
-    <style>
-        /* Estilos generales y reseteo básico */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: #fcf9ee; /* Un tono crema más suave */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px 20px 100px;
-        }
-
-        /* Contenedor de la barra de navegación / cabecera */
-        .nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #e0f2fe; /* Azul cielo más suave y moderno */
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-
-        .nav img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid #bae6fd;
-        }
-
-        .nav h1 {
-            font-size: 2rem;
-            color: #0369a1;
-        }
-
-        /* Contenedor principal */
-        .content {
-            background-color: #ffffff;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Estilos para las secciones */
-        .section {
-            margin-bottom: 35px;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            color: #0891b2;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #e0f2fe;
-            padding-bottom: 5px;
-        }
-
-        .section p {
-            font-size: 1.7rem;
-            margin-bottom: 15px;
-        }
-
-        /* Listas limpias para habilidades, experiencia, etc. */
-        .section ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 15px;
-        }
-
-        .section li {
-            font-size: 1.7rem;
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .section li::before {
-            content: "▪";
-            color: #0891b2;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Control de tamaño para los GIFs e imágenes de contenido */
-        .content img {
-            max-width: 200px;
-            border-radius: 10px;
-            margin-top: 10px;
-            display: block;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            display: block;
-            overflow: hidden;
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            color: inherit;
-            text-align: center;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-        }
-
-        .project-card:hover,
-        .project-card:focus-visible {
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
-            outline: 2px solid #0891b2;
-            outline-offset: 2px;
-        }
-
-        .project-card img {
-            display: block;
-            width: 100%;
-            max-width: none;
-            height: 350px;
-            margin: 0;
-            object-fit: cover;
-        }
-
-        .project-card h3 {
-            padding: 12px;
-            color: #0369a1;
-            font-size: 1.15rem;
-        }
-
-        .projects-gif {
-            margin-top: 20px;
-        }
-
-        /* Pie de página */
-        .bottom {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 1000;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: center;
-            gap: 8px 20px;
-            background-color: #f1f5f9;
-            padding: 14px 24px;
-            border-radius: 15px 15px 0 0;
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-            font-size: 1rem;
-            color: #1f232b;
-        }
-
-        /* Diseño responsivo para celulares */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px 10px 110px;
-            }
-            .content {
-                padding: 20px;
-            }
-            .bottom {
-                justify-content: center;
-                padding: 12px 10px;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <title data-es="Omar Báez — Ingeniería en Sistemas, Backend &amp; Datos" data-en="Omar Báez — Systems Engineering, Backend &amp; Data">Omar Báez — Ingeniería en Sistemas, Backend &amp; Datos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Cabecera -->
-    <header class="nav">
-        <img src="gato.png" alt="Foto de perfil de gato">
-        <h1>Omar Báez</h1>
+    <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+    <!-- Navigation Bar -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="site-nav" aria-label="Navegación principal">
+                <a class="brand-lockup" href="#hero">
+                    <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="brand-grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#8052ff" />
+                                <stop offset="100%" stop-color="#15846e" />
+                            </linearGradient>
+                        </defs>
+                        <polygon points="12,2 22,19 2,19" stroke="url(#brand-grad)" stroke-width="2" stroke-linejoin="miter" />
+                        <polygon points="12,8 17,17 7,17" stroke="#ffb829" stroke-width="1.2" stroke-linejoin="miter" />
+                    </svg>
+                    <span>Omar Báez</span>
+                </a>
+
+                <div class="nav-links">
+                    <a class="nav-link" href="#sobre-mi" data-es="Sobre mí" data-en="About">Sobre mí</a>
+                    <a class="nav-link" href="#habilidades" data-es="Stack" data-en="Stack">Stack</a>
+                    <a class="nav-link" href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+                    <a class="nav-link" href="#formacion" data-es="Formación" data-en="Education">Formación</a>
+                </div>
+
+                <div class="nav-actions">
+                    <button class="language-toggle" id="english-toggle" type="button" aria-label="Cambiar página a inglés">EN</button>
+                    <button class="language-toggle" id="spanish-toggle" type="button" aria-label="Cambiar página a español" hidden>ES</button>
+                    <a class="btn-primary" href="#contacto" data-es="Contactar" data-en="Get in Touch">Contactar</a>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <!-- Contenido Principal -->
-    <main class="content">
-        
-        <section class="section">
-            <h2>Sobre mí</h2>
-            <p>
-                Estudiante de Ingeniería en Sistemas en la Universidad Vasco de Quiroga (UVAQ) en Morelia, Michoacán. Enfocado en desarrollo backend, arquitectura de datos y optimización de algoritmos. Me interesa construir soluciones desde los fundamentos, entendiendo cómo funcionan las cosas por debajo
-            </p>
-            <img src="mei-mei-cat-meimei-cat.gif" alt="Meimei cat">
-        </section>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <span class="eyebrow" data-es="Ingeniería en Sistemas · Backend &amp; Datos" data-en="Systems Engineering · Backend &amp; Data">Ingeniería en Sistemas · Backend &amp; Datos</span>
+                        <h1 class="display-title hero-title" data-es="Arquitectura desde los fundamentos." data-en="Architecture from the ground up.">Arquitectura desde los fundamentos.</h1>
+                        <p class="body-copy body-copy-bright hero-body" data-es="Omar Báez — Estudiante de Ingeniería en Sistemas en la UVAQ. Enfocado en desarrollo backend, arquitectura de datos y optimización de algoritmos." data-en="Omar Báez — Systems Engineering student at UVAQ. Focused on backend development, data architecture, and algorithm optimization.">
+                            Omar Báez — Estudiante de Ingeniería en Sistemas en la UVAQ. Enfocado en desarrollo backend, arquitectura de datos y optimización de algoritmos.
+                        </p>
+                        <div class="hero-actions">
+                            <a class="btn-primary" href="#proyectos" data-es="Explorar proyectos" data-en="Explore projects">Explorar proyectos</a>
+                            <a class="btn-ghost" href="https://github.com/omrjft" target="_blank" rel="noopener noreferrer">
+                                <span>GitHub</span>
+                                <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </div>
 
-        <section class="section">
-            <h2>Habilidades</h2>
-            <ul>
-                <li>Lenguajes: Java, JavaScript, PHP, Python, Julia, SQL.</li>
-                <li>Backend y Bases de Datos: Node.js, MySQL, PostgreSQL, diseño de APIs REST</li>
-                <li>HTML5, CSS</li>
-                <li>Sistemas y Herramientas: Administración Linux, Git/GitHub, IntelliJ IDE, Visual Studio Code, TablePlus</li>
-                <li>Idiomas: Español nativo, Inglés B2</li>
-            </ul>
-            <img src="rigby.gif" alt="Rigby">
-        </section>
-
-        <section class="section">
-            <h2>Proyectos</h2>
-            <div class="projects-grid">
-                <a class="project-card" href="https://c.tenor.com/1Q6u1cim6xMAAAAC/tenor.gif" target="_blank" rel="noopener noreferrer">
-                    <img src="tienda_mascotas.png" alt="Tienda de mascotas">
-                    <h3>Página de tienda de mascotas</h3>
-                </a>
-                <a class="project-card" href="https://omrjft.github.io/iaClima/" target="_blank" rel="noopener noreferrer">
-                    <img src="clima.png" alt="Página de clima">
-                    <h3>Página de clima</h3>
-                </a>
-                <a class="project-card" href="https://omrjft.github.io/tamagotchi/" target="_blank" rel="noopener noreferrer">
-                    <img src="tamagotchi.png" alt="Tamagotchi online">
-                    <h3>Tamagotchi online</h3>
-                </a>
-                <a class="project-card" href="https://omrjft.github.io/reproductor/" target="_blank" rel="noopener noreferrer">
-                    <img src="reproductor.png" alt="Reproductor de música">
-                    <h3>Reproductor de música</h3>
-                </a>
+                    <div class="hero-visual">
+                        <canvas id="constellation-canvas" aria-hidden="true"></canvas>
+                    </div>
+                </div>
             </div>
-            <img class="projects-gif" src="meimeivoid.gif" alt="Void animation">
         </section>
 
-        <section class="section">
-            <h2>Formación</h2>
-            <ul>
-                <li>Ingeniería en Sistemas — Universidad Vasco de Quiroga (UVAQ) | En curso.</li>
-            </ul>
-            <img src="pajamas-kitten.gif" alt="Pajamas kitten">
+        <!-- About / Profile Section -->
+        <section class="section" id="sobre-mi">
+            <div class="container">
+                <div class="two-col">
+                    <div class="profile-card reveal">
+                        <img class="profile-photo" src="yo2.png" alt="Foto de perfil de Omar Báez" data-es-alt="Foto de perfil de Omar Báez" data-en-alt="Omar Báez profile photo">
+                        <span class="role-label" data-es="Backend &amp; Arquitectura de Datos" data-en="Backend &amp; Data Architecture">Backend &amp; Arquitectura de Datos</span>
+                        <h2 class="profile-name">Omar Báez</h2>
+                        <span class="profile-location">Morelia, Michoacán · UVAQ</span>
+                    </div>
+
+                    <div class="about-text reveal">
+                        <span class="eyebrow" data-es="Perfil" data-en="Profile">Perfil</span>
+                        <h2 class="section-title-sm" data-es="Entender cómo funcionan las cosas por debajo." data-en="Understanding how things work under the hood.">Entender cómo funcionan las cosas por debajo.</h2>
+                        <p class="body-copy" data-es="Estudiante de Ingeniería en Sistemas en la Universidad Vasco de Quiroga (UVAQ) en Morelia, Michoacán. Enfocado en desarrollo backend, arquitectura de datos y optimización de algoritmos. Me interesa construir soluciones desde los fundamentos, entendiendo cómo funcionan las cosas por debajo." data-en="Systems Engineering student at Universidad Vasco de Quiroga (UVAQ) in Morelia, Michoacán. Focused on backend development, data architecture, and algorithm optimization. I am interested in building solutions from the fundamentals and understanding how things work under the hood.">
+                            Estudiante de Ingeniería en Sistemas en la Universidad Vasco de Quiroga (UVAQ) en Morelia, Michoacán. Enfocado en desarrollo backend, arquitectura de datos y optimización de algoritmos. Me interesa construir soluciones desde los fundamentos, entendiendo cómo funcionan las cosas por debajo.
+                        </p>
+
+                        <div class="pillars-list">
+                            <div class="pillar-item">
+                                <span class="pillar-index">01</span>
+                                <h3 class="pillar-title" data-es="Desarrollo Backend" data-en="Backend Engineering">Desarrollo Backend</h3>
+                                <p class="pillar-desc" data-es="Lógica de servidor, APIs y control de flujo con Node.js, PHP y Java." data-en="Server logic, APIs, and control flow with Node.js, PHP, and Java.">Lógica de servidor, APIs y control de flujo con Node.js, PHP y Java.</p>
+                            </div>
+                            <div class="pillar-item">
+                                <span class="pillar-index">02</span>
+                                <h3 class="pillar-title" data-es="Arquitectura de Datos" data-en="Data Architecture">Arquitectura de Datos</h3>
+                                <p class="pillar-desc" data-es="Modelado relacional, integridad y consultas en PostgreSQL, MySQL y SQL." data-en="Relational modeling, data integrity, and querying in PostgreSQL, MySQL, and SQL.">Modelado relacional, integridad y consultas en PostgreSQL, MySQL y SQL.</p>
+                            </div>
+                            <div class="pillar-item">
+                                <span class="pillar-index">03</span>
+                                <h3 class="pillar-title" data-es="Sistemas y Algoritmos" data-en="Systems &amp; Algorithms">Sistemas y Algoritmos</h3>
+                                <p class="pillar-desc" data-es="Optimización computacional y entornos Unix con Python, Julia y Linux." data-en="Computational optimization and Unix environments with Python, Julia, and Linux.">Optimización computacional y entornos Unix con Python, Julia y Linux.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <!-- Technical Stack Section -->
+        <section class="section" id="habilidades">
+            <div class="container">
+                <div class="two-col two-col-reverse">
+                    <div class="stack-intro reveal">
+                        <span class="eyebrow" data-es="Stack Técnico" data-en="Tech Stack">Stack Técnico</span>
+                        <h2 class="section-title-sm" data-es="Herramientas para sistemas robustos." data-en="Tools for resilient systems.">Herramientas para sistemas robustos.</h2>
+                        <p class="body-copy" data-es="Tecnologías orientadas a infraestructura backend, bases de datos relacionales, computación numérica y entornos Linux." data-en="Technologies focused on backend infrastructure, relational databases, numerical computing, and Linux environments.">
+                            Tecnologías orientadas a infraestructura backend, bases de datos relacionales, computación numérica y entornos Linux.
+                        </p>
+
+                        <div class="spoken-languages">
+                            <span class="role-label" data-es="Idiomas" data-en="Languages">Idiomas</span>
+                            <span class="spoken-languages-value" data-es="Español nativo · Inglés B2" data-en="Native Spanish · English B2">Español nativo · Inglés B2</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-groups reveal">
+                        <div class="stack-group">
+                            <span class="role-label" data-es="Backend y Bases de Datos" data-en="Backend &amp; Databases">Backend y Bases de Datos</span>
+                            <div class="stack-items">
+                                <div class="stack-item"><img src="nodejs.png" alt="Node.js"><span>Node.js</span></div>
+                                <div class="stack-item"><img src="PostgreSQL.png" alt="PostgreSQL"><span>PostgreSQL</span></div>
+                                <div class="stack-item"><img src="MySQL.png" alt="MySQL"><span>MySQL</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stack-group">
+                            <span class="role-label" data-es="Lenguajes" data-en="Languages">Lenguajes</span>
+                            <div class="stack-items">
+                                <div class="stack-item"><img src="Python.png" alt="Python"><span>Python</span></div>
+                                <div class="stack-item"><img src="javalogo.png" alt="Java"><span>Java</span></div>
+                                <div class="stack-item"><img src="julia.png" alt="Julia"><span>Julia</span></div>
+                                <div class="stack-item"><img src="Sql.png" alt="SQL"><span>SQL</span></div>
+                                <div class="stack-item"><img src="JavaScript.png" alt="JavaScript"><span>JavaScript</span></div>
+                                <div class="stack-item"><img src="php.png" alt="PHP"><span>PHP</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stack-group">
+                            <span class="role-label" data-es="Sistemas y Herramientas" data-en="Systems &amp; Tools">Sistemas y Herramientas</span>
+                            <div class="stack-items">
+                                <div class="stack-item"><img src="linux.png" alt="Linux"><span>Linux</span></div>
+                                <div class="stack-item"><img src="github.png" alt="GitHub"><span>GitHub</span></div>
+                                <div class="stack-item"><img src="visualstudio.png" alt="Visual Studio Code"><span>VS Code</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stack-group">
+                            <span class="role-label" data-es="Frontend" data-en="Frontend">Frontend</span>
+                            <div class="stack-items">
+                                <div class="stack-item"><img src="html.png" alt="HTML5"><span>HTML5</span></div>
+                                <div class="stack-item"><img src="css.png" alt="CSS"><span>CSS</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" id="proyectos">
+            <div class="container">
+                <div class="projects-header reveal">
+                    <span class="eyebrow" data-es="Proyectos" data-en="Selected Work">Proyectos</span>
+                    <h2 class="section-title" data-es="Sistemas en producción y experimentos." data-en="Live systems &amp; experiments.">Sistemas en producción y experimentos.</h2>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-item reveal">
+                        <a class="project-media-link" href="https://c.tenor.com/1Q6u1cim6xMAAAAC/tenor.gif" target="_blank" rel="noopener noreferrer">
+                            <img class="project-media" src="tienda_mascotas.png" alt="Tienda de mascotas" data-es-alt="Tienda de mascotas" data-en-alt="Pet shop">
+                        </a>
+                        <div class="project-meta">
+                            <span class="role-label" data-es="01 · Inventario y Roles" data-en="01 · Inventory &amp; Roles">01 · Inventario y Roles</span>
+                        </div>
+                        <h3 class="project-title" data-es="Página de tienda de mascotas" data-en="Pet shop website">Página de tienda de mascotas</h3>
+                        <p class="project-desc" data-es="Explora el catálogo, registra ventas como empleado y administra el inventario de productos y mascotas con funciones adaptadas al rol de gerente." data-en="Browse the catalog, record sales as an employee, and manage product and pet inventory with features adapted to the manager role.">
+                            Explora el catálogo, registra ventas como empleado y administra el inventario de productos y mascotas con funciones adaptadas al rol de gerente.
+                        </p>
+                        <a class="project-link" href="https://c.tenor.com/1Q6u1cim6xMAAAAC/tenor.gif" target="_blank" rel="noopener noreferrer" data-es="Explorar proyecto ↗" data-en="View project ↗">Explorar proyecto ↗</a>
+                    </article>
+
+                    <article class="project-item reveal">
+                        <a class="project-media-link" href="https://omrjft.github.io/iaClima/" target="_blank" rel="noopener noreferrer">
+                            <img class="project-media" src="clima.png" alt="Página de clima" data-es-alt="Página de clima" data-en-alt="Weather website">
+                        </a>
+                        <div class="project-meta">
+                            <span class="role-label" data-es="02 · Datos en Tiempo Real" data-en="02 · Real-time Data">02 · Datos en Tiempo Real</span>
+                        </div>
+                        <h3 class="project-title" data-es="Página de clima" data-en="Weather website">Página de clima</h3>
+                        <p class="project-desc" data-es="Elige una ciudad y explora su reporte meteorológico en tiempo real, con datos atmosféricos detallados y accesos rápidos para consultar distintas ubicaciones." data-en="Choose a city and explore its real-time weather report, with detailed atmospheric data and quick access to different locations.">
+                            Elige una ciudad y explora su reporte meteorológico en tiempo real, con datos atmosféricos detallados y accesos rápidos para consultar distintas ubicaciones.
+                        </p>
+                        <a class="project-link" href="https://omrjft.github.io/iaClima/" target="_blank" rel="noopener noreferrer" data-es="Explorar proyecto ↗" data-en="View project ↗">Explorar proyecto ↗</a>
+                    </article>
+
+                    <article class="project-item reveal">
+                        <a class="project-media-link" href="https://omrjft.github.io/tamagotchi/" target="_blank" rel="noopener noreferrer">
+                            <img class="project-media" src="tamagotchi.png" alt="Tamagotchi online" data-es-alt="Tamagotchi online" data-en-alt="Online Tamagotchi">
+                        </a>
+                        <div class="project-meta">
+                            <span class="role-label" data-es="03 · Simulación de Estado" data-en="03 · State Simulation">03 · Simulación de Estado</span>
+                        </div>
+                        <h3 class="project-title" data-es="Tamagotchi online" data-en="Online Tamagotchi">Tamagotchi online</h3>
+                        <p class="project-desc" data-es="Adopta una mascota virtual y acompáñala durante un día completo acelerado: atiende su hambre, diversión e higiene y descubre cómo termina la aventura." data-en="Adopt a virtual pet and care for it through a full accelerated day: manage hunger, fun, and hygiene, and discover how the adventure ends.">
+                            Adopta una mascota virtual y acompáñala durante un día completo acelerado: atiende su hambre, diversión e higiene y descubre cómo termina la aventura.
+                        </p>
+                        <a class="project-link" href="https://omrjft.github.io/tamagotchi/" target="_blank" rel="noopener noreferrer" data-es="Explorar proyecto ↗" data-en="View project ↗">Explorar proyecto ↗</a>
+                    </article>
+
+                    <article class="project-item reveal">
+                        <a class="project-media-link" href="https://omrjft.github.io/reproductor/" target="_blank" rel="noopener noreferrer">
+                            <img class="project-media" src="reproductor.png" alt="Reproductor de música" data-es-alt="Reproductor de música" data-en-alt="Music player">
+                        </a>
+                        <div class="project-meta">
+                            <span class="role-label" data-es="04 · Streaming Web" data-en="04 · Web Streaming">04 · Streaming Web</span>
+                        </div>
+                        <h3 class="project-title" data-es="Reproductor de música" data-en="Music player">Reproductor de música</h3>
+                        <p class="project-desc" data-es="Explora un catálogo en streaming de canciones libres de derechos. Elige una pista, disfruta de su portada y controla la reproducción desde el navegador." data-en="Explore a streaming catalog of royalty-free songs. Choose a track, enjoy its cover art, and control playback from the browser.">
+                            Explora un catálogo en streaming de canciones libres de derechos. Elige una pista, disfruta de su portada y controla la reproducción desde el navegador.
+                        </p>
+                        <a class="project-link" href="https://omrjft.github.io/reproductor/" target="_blank" rel="noopener noreferrer" data-es="Explorar proyecto ↗" data-en="View project ↗">Explorar proyecto ↗</a>
+                    </article>
+
+                    <article class="project-item reveal">
+                        <a class="project-media-link" href="https://omrjft.github.io/sprite-2players/" target="_blank" rel="noopener noreferrer">
+                            <img class="project-media" src="sprite2players.png" alt="Sprite 2 Players" data-es-alt="Sprite 2 Players" data-en-alt="Sprite 2 Players">
+                        </a>
+                        <div class="project-meta">
+                            <span class="role-label" data-es="05 · Sincronización Multijugador" data-en="05 · Multiplayer Sync">05 · Sincronización Multijugador</span>
+                        </div>
+                        <h3 class="project-title" data-es="Sprite 2 Players" data-en="Sprite 2 Players">Sprite 2 Players</h3>
+                        <p class="project-desc" data-es="Comparte la sala con otra persona abriendo el proyecto en dos navegadores. Corre, salta y explora juntos usando los controles de teclado." data-en="Share the room with another person by opening the project in two browsers. Run, jump, and explore together using keyboard controls.">
+                            Comparte la sala con otra persona abriendo el proyecto en dos navegadores. Corre, salta y explora juntos usando los controles de teclado.
+                        </p>
+                        <a class="project-link" href="https://omrjft.github.io/sprite-2players/" target="_blank" rel="noopener noreferrer" data-es="Explorar proyecto ↗" data-en="View project ↗">Explorar proyecto ↗</a>
+                    </article>
+
+                    <article class="project-item reveal">
+                        <a class="project-media-link" href="https://omrjft.github.io/ping-pong/" target="_blank" rel="noopener noreferrer">
+                            <img class="project-media" src="pingpong.png" alt="Ping Pong" data-es-alt="Ping Pong" data-en-alt="Ping Pong">
+                        </a>
+                        <div class="project-meta">
+                            <span class="role-label" data-es="06 · Motor Físico &amp; Leaderboard" data-en="06 · Physics &amp; Leaderboard">06 · Motor Físico &amp; Leaderboard</span>
+                        </div>
+                        <h3 class="project-title" data-es="Ping Pong" data-en="Ping Pong">Ping Pong</h3>
+                        <p class="project-desc" data-es="Enfréntate a una partida sin fin contra la pared: mueve la paleta con el teclado, mantén la pelota en juego y mira cómo aumenta la velocidad con cada rebote. ¿Podrás entrar al leaderboard?" data-en="Challenge yourself in an endless match against the wall: move the paddle with the keyboard, keep the ball in play, and watch the speed increase with every bounce. Can you enter the leaderboard?">
+                            Enfréntate a una partida sin fin contra la pared: mueve la paleta con el teclado, mantén la pelota en juego y mira cómo aumenta la velocidad con cada rebote. ¿Podrás entrar al leaderboard?
+                        </p>
+                        <a class="project-link" href="https://omrjft.github.io/ping-pong/" target="_blank" rel="noopener noreferrer" data-es="Explorar proyecto ↗" data-en="View project ↗">Explorar proyecto ↗</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section" id="formacion">
+            <div class="container">
+                <div class="two-col reveal">
+                    <div>
+                        <span class="eyebrow" data-es="Formación" data-en="Education">Formación</span>
+                        <h2 class="section-title-sm" data-es="Base académica." data-en="Academic foundation.">Base académica.</h2>
+                    </div>
+
+                    <div class="education-block">
+                        <span class="role-label" data-es="2024 — En curso" data-en="2024 — In progress">2024 — En curso</span>
+                        <h3 class="education-degree" data-es="Ingeniería en Sistemas" data-en="Systems Engineering">Ingeniería en Sistemas</h3>
+                        <p class="education-institution" data-es="Universidad Vasco de Quiroga (UVAQ) · Morelia, Michoacán" data-en="Universidad Vasco de Quiroga (UVAQ) · Morelia, Michoacán">Universidad Vasco de Quiroga (UVAQ) · Morelia, Michoacán</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Pie de página -->
-    <footer class="bottom" aria-label="Información de contacto">
-        <span>Correo: omarjafet1@gmail.com</span>
-        <span>GitHub: <a href="https://github.com/omrjft" target="_blank" rel="noopener noreferrer">omrjft</a></span>
-        <span>Teléfono: +52 452 306 0795</span>
+    <!-- Contact & Footer -->
+    <footer class="contact-section" id="contacto" aria-label="Información de contacto">
+        <div class="container">
+            <div class="contact-grid reveal">
+                <div>
+                    <span class="eyebrow" data-es="Contacto" data-en="Contact">Contacto</span>
+                    <h2 class="section-title contact-headline" data-es="Construyamos algo sólido." data-en="Let's build something solid.">Construyamos algo sólido.</h2>
+                    <a class="btn-primary" href="mailto:omarjafet1@gmail.com" data-es="Enviar correo" data-en="Send email">Enviar correo</a>
+                </div>
+
+                <div class="contact-links">
+                    <a class="contact-link" href="mailto:omarjafet1@gmail.com">
+                        <img class="contact-logo" src="gmail.png" alt="Correo">
+                        <span>omarjafet1@gmail.com</span>
+                    </a>
+                    <a class="contact-link" href="https://github.com/omrjft" target="_blank" rel="noopener noreferrer">
+                        <img class="contact-logo" src="github.png" alt="GitHub">
+                        <span>github.com/omrjft</span>
+                    </a>
+                    <a class="contact-link" href="https://wa.me/524523060795" target="_blank" rel="noopener noreferrer">
+                        <img class="contact-logo" src="whatsapp.png" alt="WhatsApp">
+                        <span>+52 452 306 0795</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>Omar Báez · Morelia, Michoacán</span>
+                <span data-es="Ingeniería en Sistemas · Backend &amp; Arquitectura de Datos" data-en="Systems Engineering · Backend &amp; Data Architecture">Ingeniería en Sistemas · Backend &amp; Arquitectura de Datos</span>
+            </div>
+        </div>
     </footer>
 
+    <script src="app.js"></script>
 </body>
 </html>
